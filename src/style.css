@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #F9F9F9;
+}
+
+/* dark mode start */
+
+.dark .header{
+    background: #1B2430;
+    color:#fff;
+    box-shadow: rgba(247, 245, 245, 0.7) 0px 3px 5px;
+}
+
+.dark .header button{
+    color:#fff;
+}
+
+.dark .container{
+    background: #2C3333;
+    color:#fff;
+}
+
+.dark .card{
+    background: #1B2430;
+}
+
+/* dark mode end */
+
+.header{
+    background-color: #F9F9F9;
+    color:#1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px 100px;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 3px 5px;
+}
+
+.header .title-link{
+    color:#1a1a1a;
+    text-decoration: none;
+}
+
+.header button{
+    background: transparent;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    font-size:18px;
+}
+
+.search-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:120px 100px 50px 100px;
+}
+
+.search-menu .input{
+    position: relative;
+}
+
+.search-menu input{
+    width:450px;
+    height: 50px;
+    padding-left:45px;
+    font-size: 17px;
+    border-radius: 6px;
+    outline: none;
+    border:1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+   
+}
+
+.search-menu .searchIcon{
+    position: absolute;
+    top:15px;
+    left:15px;
+    color:black;
+
+}
+
+.search-menu select{
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 6px;
+    outline: none;
+    border:1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 8px;
+}
+
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:0 100px;
+}
+
+.content .card{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius:10px;
+    width: 250px;
+    margin:25px 0;
+    padding-bottom: 10px;
+}
+
+
+.content .card img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 160px;
+    padding-bottom:5px;
+    
+}
+
+.content .card p{
+    padding-left:10px;
+    padding-bottom:2px;
+}
+
+.content .card .ulkeAdi{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.content .card span{
+    font-weight: 600;
+}
+
+.not-found-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.not-found-page img{
+  width:400px;
+}
+
+.not-found-page button{
+  padding:15px 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border:1px solid #ddd;
+  background-color: #F9F9F9;
+  font-size: 17px;
+  cursor: pointer;
+ 
+}
+
+.not-found-page .page-not-found-link{
+    color:#1a1a1a;
+    text-decoration: none;
+}
+
+.not-found-page button:hover{
+  padding:15px 30px;
+  box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.5) 0px 3px 7px -3px;
+}
+
+
+
