@@ -3,6 +3,8 @@ import axios from "axios";
 import "../style.css";
 import { BsSearch } from "react-icons/bs";
 import Header from "./Header";
+import {Link} from "react-router-dom"
+import CardDetails from "../components/CardDetails";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -14,25 +16,30 @@ const Home = () => {
 
   const getCountries = () => {
     axios("https://restcountries.com/v3.1/all").then((res) =>
-      setCountries(res.data)
+      setCountries((res.data).sort((a, b) => a.name.common > b.name.common ? 1 : -1))
     );
   };
 
   const searchCountries = (ulke) =>{
     if(ulke.length < 3 || ulke === "") return 
     axios(`https://restcountries.com/v3.1/name/${ulke}`)
-    .then((res) => setCountries(res.data));
+    .then((res) => setCountries((res.data).sort((a, b) => a.name.common > b.name.common ? 1 : -1)));
   }
   
-  var kitalar = ["Filter by Region","africa","america","asia","europe","oceania"];
+  
 
   const filterRegion = (bolge) => {
-    if(bolge === "") return
-    axios(`https://restcountries.com/v3.1/region/${bolge}`)
-    .then((res) => setCountries(res.data));
+    if(bolge === "all"){
+      return  axios("https://restcountries.com/v3.1/all").then((res) =>
+      setCountries((res.data).sort((a, b) => a.name.common > b.name.common ? 1 : -1))
+    );
+    }
+    else{
+      return  axios(`https://restcountries.com/v3.1/region/${bolge}`)
+      .then((res) => setCountries((res.data).sort((a, b) => a.name.common > b.name.common ? 1 : -1)));
+    }
+   
   }
-
-  
 
   return (
     <div>
@@ -45,33 +52,30 @@ const Home = () => {
               <input type="text" placeholder="Bir Ülke Ara" onChange={(ulke) => searchCountries(ulke.target.value)}/>
             </form>
             <form action="">
-                
                 <select onChange={(bolge) => filterRegion(bolge.target.value)}>            
-                   {
-                    kitalar.map((kita) =>{
-                        return <option value={kita}>{kita}</option>
-                    })
-                   } 
+                  <option value="all">All Countries</option>
+                  <option value="africa">Africa</option>
+                  <option value="america">America</option>
+                  <option value="asia">Asia</option>
+                  <option value="europe">Europe</option>
+                  <option value="oceania">Oceania</option>
+                   
                 </select>
             </form>
           </div>
           <div className="content">
-            {countries.map((item) => (
-              <div className="card">
-                <img src={item.flags.png} />
-                <p className="ulkeAdi">{item.name.common}</p>
-                <p>
-                  <span>Population: </span> {item.population}
-                </p>
-                <p>
-                  <span>Region: </span> {item.region}
-                </p>
-                <p>
-                  <span>Capital: </span> {item.capital}
-                </p>
-              </div>
-            ))}
+              {countries.map((item, index) => 
+              <Link  to="details" state={item} key={index}>
+                <CardDetails
+                 title={item.name.common}
+                image_url={item.flags.png}
+                population={item.population}
+                region={item.region}
+                capital={item.capital}                 
+                />
+              </Link>)}
           </div>
+       
         </div>
       </div>
     </div>

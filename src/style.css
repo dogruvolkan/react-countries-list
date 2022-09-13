@@ -130,11 +130,14 @@ body{
 .content .card p{
     padding-left:10px;
     padding-bottom:2px;
+    text-decoration: none;
+    color:#1a1a1a;
 }
 
 .content .card .ulkeAdi{
     font-size: 18px;
     font-weight: bolder;
+    text-decoration: none;
 }
 
 .content .card span{
@@ -173,5 +176,61 @@ body{
   box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.5) 0px 3px 7px -3px;
 }
 
+
+.details-container{
+    margin-top:100px;
+    padding:0 100px;
+}
+
+.details-container button{
+    margin:50px 0;
+    padding:8px 5px;
+    outline: none;
+    width: 100px;
+    font-size: 20px;
+    background: #F9F9F9;
+    border:1px solid #ddd;
+    color:#1B2430;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.country-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flag-area {
+    width: 60%;
+}
+
+.flag-area img{
+    width:600px;
+}
+
+.country-info {
+    width: 40%;
+    margin-right:120px;
+}
+
+.country-info h2{
+    text-align: center;
+}
+
+.country-info2{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+
+.country-info2 h4{
+    padding-bottom:8px;
+}
+
+.country-info2 span{
+    font-weight: bolder;
+}
 
 
